@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
-
+import matplotlib.pyplot as plt
 import numpy as np
 
-from plotly import express as px
+
 from prophet import Prophet
 from prophet import plot
-from plotly import graph_objs as go
+
 
 
 st.title("Previsão do preço do petróleo tipo Brent em USD$")
