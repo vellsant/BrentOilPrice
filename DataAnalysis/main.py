@@ -1,17 +1,14 @@
 import streamlit as st
 import pandas as pd
-
 import numpy as np
-
-
 from prophet import Prophet
 from prophet import plot
 
 
 
 st.title("Previsão do preço do petróleo tipo Brent em USD$")
-st.image('Brent-Crude-Oil.jpg')
-df = pd.read_csv('Dados_IPEA.csv')
+st.image('/Brent-Crude-Oil.jpg')
+df = pd.read_csv('/Dados_IPEA.csv')
 df = df.dropna()
 df['Data'] = pd.to_datetime(df['Data'], dayfirst=True)
 df['Preco'] = df['Preco'].str.replace(',', '.')
@@ -47,5 +44,6 @@ df_futuro = pred[pred['ds'].dt.year == ano_pred]
 #st.write(pred.tail())
 
 st.line_chart(data=df_futuro, x='ds', y='yhat', x_label='Anos', y_label='Preço')
+
 
 
