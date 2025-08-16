@@ -10,8 +10,8 @@ from prophet import plot
 
 
 st.title("Previsão do preço do petróleo tipo Brent em USD$")
-st.image('D:\Pós Tech - Data Analytics\TechChallenge4\DataAnalysis\Brent-Crude-Oil.jpg')
-df = pd.read_csv('D:\Pós Tech - Data Analytics\TechChallenge4\DataAnalysis\Dados_IPEA.csv')
+st.image('Brent-Crude-Oil.jpg')
+df = pd.read_csv('Dados_IPEA.csv')
 df = df.dropna()
 df['Data'] = pd.to_datetime(df['Data'], dayfirst=True)
 df['Preco'] = df['Preco'].str.replace(',', '.')
