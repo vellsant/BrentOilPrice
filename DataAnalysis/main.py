@@ -7,7 +7,7 @@ import numpy as np
 from prophet import Prophet
 from prophet import plot
 
-df = pd.read_csv('Dados_IPEA.csv')
+df = pd.read_csv('DataAnalysis/Dados_IPEA.csv')
 df = df.dropna()
 df['Data'] = pd.to_datetime(df['Data'], dayfirst=True)
 df['Preco'] = df['Preco'].str.replace(',', '.')
@@ -15,7 +15,7 @@ df['Preco'] = df['Preco'].astype(np.float64)
 #df=df.set_index('Data')
 
 st.title("Previsão do preço do petróleo tipo Brent em USD$")
-st.image('Brent-Crude-Oil.jpg')
+st.image('DataAnalysis/Brent-Crude-Oil.jpg')
 
 st.header('O que é o petróleo Brent?')
 st.write('Brent é o nome dado ao petróleo cru extraido do Mar do Norte, e é uma das prinicipais referências para a precificação do petróleo no mundo.')
@@ -57,5 +57,6 @@ pred = model.predict(dataFramefuture)
 #st.write(pred.tail())
 
 st.line_chart(data=pred[pred['ds'].dt.year > 2024], x='ds', y='yhat', x_label='Anos', y_label='Preço')
+
 
 
